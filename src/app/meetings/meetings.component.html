@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Monthly Meeting</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group me-2">
+        <div class="input-group">
+            <span class="input-group-text">Date</span>
+            <input class="form-control" name="date" id="date" type="date" aria-label="With textarea" />
+          </div>
+      </div>
+     
+    </div>
+  </div>
+  <div class="table-responsive small row  row-cols-1 row-cols-md-2 g-4">
+    <div class="col" *ngFor="let meet of meetings; index as i;">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{meet.meetingDate | date:'longDate'}}</h5>
+            <p class="card-text">Meeting discussion notes :</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{meet.mom}}</li>
+          </ul>
+          
+        </div>
+      </div>
+     
+  </div>
+
+  <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (light)">
+      <i class="bi fa fa-pencil" width="1em" height="1em"></i>
+      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="true" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+          Add
+        </button>
+      </li>
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+          Edit
+        </button>
+      </li>
+     
+    </ul>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Meeting Notes</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Meeting Notes:</label>
+              <textarea class="form-control" name="mom" [(ngModel)]="meeting.mom" id="recipient-name" cols="30" rows="10"></textarea>
+            </div>
+           
+          </form>
+        </div>
+        <div class="modal-footer">
+          <label *ngIf="isMeetingAdded" style="color: green;margin: auto;">Meeting added successfully</label>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" (click)="createMeeting()" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>

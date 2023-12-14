@@ -1,0 +1,83 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Monthly Expenses</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group me-2">
+        <div class="input-group">
+            <span class="input-group-text">Date</span>
+            <input class="form-control" name="date" id="date" type="date" aria-label="With textarea" />
+          </div>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      </div>
+     
+    </div>
+  </div>
+  <div class="table-responsive small">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ex of expenses; index as i;">
+          <td>{{ex.expenseDate | date:'longDate'}}</td>
+          <td>&#x20b9;{{ex.expenseAmount}}</td>
+          <td>{{ex.expenseDetails}}</td>
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (light)">
+      <i class="bi fa fa-pencil" width="1em" height="1em"></i>
+      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="true" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+          Add
+        </button>
+      </li>
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+          Edit
+        </button>
+      </li>
+     
+    </ul>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Expense Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="date-name" class="col-form-label">Expense Date</label>
+              <input class="form-control" name="date" [(ngModel)]="expense.expenseDate" id="date" type="date" aria-label="With textarea" />
+            </div>
+            <div class="mb-3">
+              <label for="amount-name" class="col-form-label">Amount:</label>
+              <input type="number" name="amount" [(ngModel)]="expense.expenseAmount" class="form-control" id="amount-name" />
+            </div>
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Expense Details:</label>
+              <textarea name="detail" [(ngModel)]="expense.expenseDetails" class="form-control" id="recipient-name" cols="30" rows="10"></textarea>
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" (click)="createExpense()" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
