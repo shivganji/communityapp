@@ -14,6 +14,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { CommunityInterceptor } from './community.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { NgChartsModule } from 'ng2-charts';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     ExpensesComponent,
     MeetingsComponent,
     MaintenanceComponent,
-    DashboardComponent
+    DashboardComponent,
+    ChartComponent
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   imports: [
@@ -32,7 +35,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     HttpClientModule,
     FormsModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgChartsModule
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:CommunityInterceptor,multi:true}],
   bootstrap: [AppComponent]

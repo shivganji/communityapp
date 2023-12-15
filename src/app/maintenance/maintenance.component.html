@@ -77,7 +77,7 @@
               <div class="input-group">
                 <label for="memname" class="input-group-text">Select Member</label>
                 <select class="form-select" name="memName" [(ngModel)]="selectedMember" id="memname">
-                  <option *ngFor="let member of members;index as i;" [ngValue]="member">{{member.name}}</option>
+                  <option *ngFor="let member of membersNotPaid;index as i;" [ngValue]="member">{{member.name}}</option>
                 </select>
               </div>
             </div>

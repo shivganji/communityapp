@@ -25,6 +25,7 @@ export class MaintenanceComponent implements OnInit {
   currentMonth:any=new Date().getMonth();
   years:any=["2020","2021","2022","2023","2024","2025","2026","2027","2028","2029","2030"]
   members:Members[]=[];
+  membersNotPaid:Members[]=[];
   
   constructor(private readonly communityService:CommunityService){
 
@@ -34,6 +35,7 @@ ngOnInit(): void {
 }
 
 loadMembers():void{
+  this.membersNotPaid=[];
   this.communityService.getmembersList().subscribe((response: Members[]) => {
     this.members=response;
     if(this.members.length>0){
@@ -45,6 +47,7 @@ loadMembers():void{
         element.isPaid=true;
       }else{
         element.isPaid=false;
+        this.membersNotPaid.push(element);
       }
      });
     }

@@ -123,3 +123,134 @@
     padding: .75rem 1rem;
   }
   
+  .app-card-accordion .app-card-title {
+    font-size: 1.125rem
+}
+
+.app-card-accordion .faq-accordion .accordion-item {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #e7e9ed
+}
+
+.app-card-accordion .faq-accordion .accordion-item:last-child {
+    border-bottom: none
+}
+
+.app-card-accordion .faq-accordion .accordion-header {
+    border: none
+}
+
+.app-card-accordion .faq-accordion .accordion-button {
+    padding: 1rem;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background: none;
+    padding-left: 0;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #15a362
+}
+
+.app-card-accordion .faq-accordion .accordion-button:after {
+    display: none
+}
+
+.app-card-accordion .faq-accordion .accordion-body {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    font-size: 1rem
+}
+
+.app-card-account {
+    height: 100%
+}
+
+.app-card-account .item {
+    font-size: .875rem
+}
+
+.app-card-account .item .profile-image {
+    width: 60px;
+    height: 60px
+}
+
+.app-card-account .item .btn-sm,.app-card-account .item .btn-group-sm>.btn {
+    padding: .125rem .5rem;
+    font-size: .75rem
+}
+
+.settings-section .section-title {
+    font-size: 1.25rem
+}
+
+.settings-section .section-intro {
+    font-size: .875rem
+}
+
+.app-card-settings {
+    font-size: 1rem
+}
+
+.app-card-settings .form-label {
+    font-weight: bold
+}
+
+.app-card-settings .form-control {
+    font-size: 1rem
+}
+
+.app-404-page {
+    padding-top: 2rem
+}
+
+.app-404-page .page-title {
+    font-size: 3rem;
+    line-height: .8;
+    font-weight: bold
+}
+
+.app-404-page .page-title span {
+    font-size: 1.5rem
+}
+
+.chart-container {
+    position: relative
+}
+
+.app-table-hover>tbody>tr:hover {
+    background-color: #fafbff
+}
+
+.app-card-notification .notification-type .badge {
+    font-size: .65rem;
+    text-transform: uppercase
+}
+
+.app-card-notification .profile-image {
+    width: 60px;
+    height: 60px
+}
+
+.app-card-notification .notification-title {
+    font-size: 1.125rem
+}
+
+.app-card-notification .notification-content {
+    font-size: .875rem
+}
+
+.app-card-notification .notification-meta {
+    font-size: .75rem;
+    color: #828d9f
+}
+
+.app-card-notification .action-link {
+    font-size: .875rem
+}
+
+.app-card-notification .app-card-footer {
+    background: #fafbff
+}
