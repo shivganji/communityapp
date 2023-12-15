@@ -1,8 +1,8 @@
 export interface Expenses {
-    expenseID:Number;
-    expenseAmount:Number;
-    totalExpenses:Number;
+    expenseID:number;
+    expenseAmount:number;
+    totalExpenses:number;
     expenseDate:Date;
-    expenseDetails:String;
-    communityID:Number;
+    expenseDetails:string;
+    communityID:number;
 }

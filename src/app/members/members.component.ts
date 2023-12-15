@@ -18,6 +18,7 @@ export class MembersComponent implements OnInit {
     flatNo:'',
     mobile:'',
     role:'',
+    isPaid:false,
     monthlyMaintenance:[]
   };
 
@@ -46,6 +47,7 @@ clearForm():void{
     flatNo:'',
     mobile:'',
     role:'',
+    isPaid:false,
     monthlyMaintenance:[]
   }
 }

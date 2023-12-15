@@ -34,7 +34,8 @@
         <tr *ngFor="let member of members;">
           <td>{{member.flatNo}}</td>
           <td>{{member.name}}</td>
-          <td style="color:green">Paid</td>
+          <td style="color:green" *ngIf="member.isPaid">Paid</td>
+           <td style="color:red" *ngIf="!member.isPaid">Not Paid</td>
         </tr>
        
       </tbody>

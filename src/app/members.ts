@@ -7,5 +7,6 @@ export interface Members {
     flatNo?:string;
     mobile?:string;
     role?:string;
+    isPaid:boolean;
     monthlyMaintenance:Maintenance[];
 }

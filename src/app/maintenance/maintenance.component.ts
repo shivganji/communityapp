@@ -17,6 +17,7 @@ export class MaintenanceComponent implements OnInit {
     flatNo:'',
     mobile:'',
     role:'',
+    isPaid:false,
     monthlyMaintenance:[]
   };
    monthNames:any = ["January", "February", "March", "April", "May", "June",
@@ -35,36 +36,51 @@ ngOnInit(): void {
 loadMembers():void{
   this.communityService.getmembersList().subscribe((response: Members[]) => {
     this.members=response;
+    if(this.members.length>0){
+      this.members.forEach(element => {
+        
+      let paid=element.monthlyMaintenance.find(e=>new Date(e.date).getMonth()==this.currentMonth);
+    
+      if(paid!=null){
+        element.isPaid=true;
+      }else{
+        element.isPaid=false;
+      }
+     });
+    }
     console.log(response, 'res');
   })
 }
 
 createMaintenance(): void {
   this.maintenanceAmount=localStorage.getItem('maintenanceAmount');
-  const data = {
-     memberID: this.selectedMember.memberID,
-     amount: this.maintenanceAmount,
-     totalAmount:0,
-     date:new Date()
-    // name:this.member.name,
-    // flatNo:this.member.flatNo,
-    // mobile:this.member.mobile,
-    // role:this.member.role,
-  };
-
-  this.communityService.createMaintenance(data)
-      .subscribe({
-        next: (res) => {
-          console.log(res);
-          // this.isMemberAdded=true;
-          // this.clearForm();
-          this.loadMembers();
-        },
-        error: (e) =>{
-          //this.isMemberAdded=false;
-          console.error(e)
-        }
-      });
-  console.log('Create a member')
+  if(this.selectedMember.memberID!=0){
+    const data = {
+      memberID: this.selectedMember.memberID,
+      amount: this.maintenanceAmount,
+      totalAmount:0,
+      date:new Date()
+     // name:this.member.name,
+     // flatNo:this.member.flatNo,
+     // mobile:this.member.mobile,
+     // role:this.member.role,
+   };
+ 
+   this.communityService.createMaintenance(data)
+       .subscribe({
+         next: (res) => {
+           console.log(res);
+           // this.isMemberAdded=true;
+           // this.clearForm();
+           this.loadMembers();
+         },
+         error: (e) =>{
+           //this.isMemberAdded=false;
+           console.error(e)
+         }
+       });
+   console.log('Create a member')
+  }
+ 
 }
 }
